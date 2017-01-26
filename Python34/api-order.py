@@ -1,5 +1,6 @@
 #import httplib
 import http.client
+import ssl
 import urllib
 import json
 import datetime
@@ -8,7 +9,7 @@ import datetime
 
 ## This demonstrates getting the current price of an instrument and trading if it is above a threshold
 def checkAndTrade():
-    conn = httplib.HTTPSConnection("api-sandbox.oanda.com")
+    conn = http.client.HTTPSConnection("api-sandbox.oanda.com")
     conn.request("GET", "/v1/prices?instruments=USD_CAD")
     response = conn.getresponse()
     resptext = response.read()

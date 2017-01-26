@@ -6,6 +6,13 @@ import time
 import datetime
 ## Input Required: period granularity instrument account
 
+'''
+granularity = 'M'
+period = 100
+pair = "USD_CAD"
+account = 8026346
+'''
+
 ## This script will constantly check for new candle information and constantly calculate SMA and WMA.
 ## It will then execute a trade when they cross in the appropriate direction
 ## For example, if the WMA grows larger than the SMA, that means price is moving up so trade long

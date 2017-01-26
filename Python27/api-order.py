@@ -1,4 +1,5 @@
 import httplib
+import httplib2
 import urllib
 import json
 import datetime
@@ -11,6 +12,7 @@ def checkAndTrade():
     conn.request("GET", "/v1/prices?instruments=USD_CAD")
     response = conn.getresponse()
     resptext = response.read()
+    print resptext
     if response.status == 200:
         data = json.loads(resptext)
         if data['prices'][0]['ask'] > 0.994:

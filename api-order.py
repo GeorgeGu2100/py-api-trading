@@ -1,4 +1,5 @@
-import httplib
+#import httplib
+import http.client
 import urllib
 import json
 import datetime
@@ -20,9 +21,9 @@ def checkAndTrade():
                                        "type" : 'market',
                                        "side" : "buy"})
             conn.request("POST", "/v1/accounts/8026346/orders", params, headers)
-            print conn.getresponse().read()
+            print (conn.getresponse().read())
     else:
-        print resptext
+        print (resptext)
 
 ## This sets up an order for the same price as above, which will execute a trade when the price crosses 0.994
 def order():
@@ -38,7 +39,8 @@ def order():
                                "type" : "limit"})
     headers = {"Content-Type" : "application/x-www-form-urlencoded"}
     conn.request("POST", "/v1/accounts/8026346/orders", params, headers)
-    print conn.getresponse().read()
+    print (conn.getresponse().read())
 
-order()
+
 checkAndTrade()
+order()
